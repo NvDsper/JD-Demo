@@ -33,9 +33,7 @@ module.exports = env => {
     )
   }
   return {
-    entry: {
-      app: './app/js/main.js'
-    },
+    entry: ['./app/js/viewport.js', './app/js/main.js'],
     devServer: {
       contentBase: './dist',
       hot: true,
@@ -56,34 +54,38 @@ module.exports = env => {
         ]
       }, {
         test: /\.scss$/,
-        use: [
-          'vue-style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              // 开启 CSS Modules
-              modules: true,
-              // 自定义生成的类名
-              localIdentName: '[local]_[hash:base64:8]'
-            }
-          }, {
-            loader: 'px2rem-loader',
-            // options here
-            options: {
-              remUnit: 40,
-              remPrecision: 8
-            }
-          },
-          'sass-loader'
-        ]
-      }, {
-        test: /\.css$/,
-        use: [
-          process.env.NODE_ENV !== 'production' ?
-          'vue-style-loader' :
-          MiniCssExtractPlugin.loader,
-          'css-loader'
-        ]
+        oneOf: [{
+          resourceQuery: /module/,
+          use: [
+            'vue-style-loader',
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true,
+                localIdentName: '[local]_[hash:base64:5]'
+              }
+            }, {
+              loader: 'px2rem-loader',
+              options: {
+                remUnit: 40,
+                remPrecision: 8
+              }
+            },
+            'sass-loader'
+          ]
+        }, {
+          use: [
+            'vue-style-loader',
+            'css-loader', {
+              loader: 'px2rem-loader',
+              options: {
+                remUnit: 40,
+                remPrecision: 8
+              }
+            },
+            'sass-loader'
+          ]
+        }],
       }]
     },
     resolve: {
