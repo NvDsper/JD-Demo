@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <div :class="[btnClass,cname]">
         <slot></slot>
     </div>
