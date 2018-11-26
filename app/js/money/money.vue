@@ -1,15 +1,14 @@
 <template>
     <Panel :class="$style.panel" title="理财精选">
         <section :class="$style.content">
-            <dl v-for="item in items" :key="item.title" :class="$style.item">
-                <dt>{{ item.title }}<span>{{ item.sub }}</span></dt>
+            <dl v-for="item in items" :class="$style.item" :key="item.title">
+                <dt>{{ item.title }}<span>{{ item.sup }}</span></dt>
                 <dd>{{ item.rate }}</dd>
                 <dd>{{ item.text }}</dd>
             </dl>
         </section>
     </Panel>
 </template>
-
 <script>
 import Panel from "../core/panel.vue"
 
@@ -22,52 +21,43 @@ export default {
             items: [{
                 title: "定期理财",
                 rate: "5.60%",
+                sup: "理财首选",
                 text: "历史年化回报率",
-                sub: "理财首选",
             }, {
                 title: "小白理财",
                 rate: "4.22%",
+                sup: "理财首选",
                 text: "七日年化收益率",
-                sub: "理财首选",
             }, {
                 title: "月月盈",
                 rate: "5%",
+                sup: "养老保障",
                 text: "七日年化收益率",
-                sub: "养老保障",
             }, {
                 title: "小白基金",
                 rate: "4.27%",
+                sup: "天天赚钱",
                 text: "七日年化收益率",
-                sub: "天天赚钱",
             }],
         }
     },
 }
 </script>
 <style lang="scss" module>
-@import '../../css/element.scss';
-
+@import "../../css/element.scss";
 .panel{
     @include panel;
     .content{
         @include flex(row);
         justify-content: space-around;
         box-sizing: border-box;
-        &:after{
-            content: " ";
-            width: 100%;
-            height: 0px;
-            box-sizing: border-box;
-            border-bottom: 1px solid #ddd;
-            position: relative;
-            top: -208px;
-        }
         .item{
-            position: relative;
             width: 50%;
+            padding: 32px 14px;
             box-sizing: border-box;
+            position: relative;
             &:after{
-                content: "";
+                content: " ";
                 width: 1px;
                 height: 136px;
                 display: block;
@@ -75,14 +65,8 @@ export default {
                 top: 50%;
                 right: 0;
                 margin-top: -68px;
-                border-right: 1px solid #eee;
+                border: 1px solid #eee;
             }
-            &:nth-child(2n){
-                &:after{
-                    display: none;
-                }
-            }
-            padding: 34px 16px;
             dt{
                 font-size: 30px;
                 line-height: 42px;
@@ -93,6 +77,7 @@ export default {
                     border: 1px solid #ff5155;
                     padding: 5px 8px;
                     margin: 2px;
+                    margin-left: 2px;
                 }
             }
             dd{

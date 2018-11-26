@@ -2,9 +2,6 @@
     <Panel :class="$style.panel" title="公司信息">
         <ul :class="$style.content">
             <li>
-                <img src="//img12.360buyimg.com/jrpmobile/jfs/t2842/350/3035567089/14791/5f6ff93d/577cf395N31e76288.png?width=1125&height=252" alt="在线客服">
-            </li>
-            <li>
                 <div>
                     <img src="//img12.360buyimg.com/jrpmobile/jfs/t2971/333/1297567079/898/f2d2e00d/577dc28dNe5138337.png?width=108&height=108" alt="">
                     <p>客户端</p>
@@ -56,7 +53,7 @@ export default {
                 width: 100%;
                 height: 143px;
             }
-            &:nth-child(2){
+            &:nth-child(1){
                 @include flex(row);
                 height: 186px;
                 div{
@@ -80,7 +77,7 @@ export default {
                     }
                 }
             }
-            &:nth-child(n+3){
+            &:nth-child(n+2){
                 height: 38px;
                 padding: 24px 0;
                 border-top: 1px solid #ddd;

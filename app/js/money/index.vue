@@ -1,13 +1,11 @@
 <template>
     <div>
         <Heador/>
-        <HSlider/>
-        <Novice/>
-        <Borrow/>
+        <Mslider/>
         <Money/>
-        <Product/>
-        <Life/>
-        <Service/>
+        <Ad/>
+        <money2/>
+        <Ad1/>
         <Footer/>
         <Navbar/>
     </div>
@@ -17,26 +15,22 @@
 import Heador from "../public/header.vue"
 import Footer from "../public/footer.vue"
 import Navbar from "../public/navbar.vue"
-import HSlider from "./hslider.vue"
-import Novice from "./novice.vue"
-import Borrow from "./borrow.vue"
+import Mslider from "./mslider.vue"
 import Money from "./money.vue"
-import Product from "./product.vue"
-import Life from "./life.vue"
-import Service from "./service.vue"
+import Ad from "./ad.vue"
+import money2 from "./money2.vue"
+import Ad1 from "./ad1.vue"
 
 export default {
     components: {
         Heador,
         Footer,
         Navbar,
-        HSlider,
-        Novice,
-        Borrow,
+        Mslider,
         Money,
-        Product,
-        Life,
-        Service,
+        Ad,
+        money2,
+        Ad1,
     },
 }
 </script>
